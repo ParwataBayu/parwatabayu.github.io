@@ -1,0 +1,256 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 1285px;
+}
+
+.u-section-1 .u-image-1 {
+  width: 628px;
+  height: 628px;
+  background-image: url("/images/tsrsrsrsr-min.jpg");
+  background-position: 50% 50%;
+  margin: 60px 96px 0 auto;
+}
+
+.u-section-1 .u-image-2 {
+  width: 276px;
+  height: 276px;
+  background-image: url("/images/re.jpg");
+  background-position: 50% 50%;
+  margin: -596px auto 0 71px;
+}
+
+.u-section-1 .u-image-3 {
+  width: 389px;
+  height: 389px;
+  background-image: url("/images/bride-holds-lush-bouquet-with-delicate-flowers-colors_8353-11436.jpg");
+  background-position: 50% 50%;
+  margin: 50px auto 0 156px;
+}
+
+.u-section-1 .u-shape-1 {
+  width: 119px;
+  height: 119px;
+  margin: -419px auto 0 20px;
+}
+
+.u-section-1 .u-shape-2 {
+  width: 250px;
+  height: 250px;
+  margin: 39px 69px 0 auto;
+}
+
+.u-section-1 .u-group-1 {
+  min-height: 358px;
+  margin-top: 71px;
+  margin-bottom: 60px;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 30px 50px;
+}
+
+.u-section-1 .u-text-1 {
+  font-weight: 700;
+  font-family: "Julius Sans One";
+  margin: 0;
+}
+
+.u-section-1 .u-text-2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 20px 0 0;
+}
+
+.u-section-1 .u-text-3 {
+  width: 359px;
+  margin: 30px auto 0;
+}
+
+.u-section-1 .u-btn-1 {
+  background-image: none;
+  border-style: solid;
+  padding: 0;
+}
+
+.u-section-1 .u-btn-2 {
+  font-size: 1.125rem;
+  letter-spacing: 1px;
+  border-style: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-image: none;
+  margin: 35px auto 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1333px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 562px;
+    height: 562px;
+    margin-right: 60px;
+  }
+
+  .u-section-1 .u-image-2 {
+    margin-top: -628px;
+    margin-left: 30px;
+  }
+
+  .u-section-1 .u-image-3 {
+    width: 362px;
+    height: 362px;
+    margin-top: 141px;
+    margin-left: 171px;
+  }
+
+  .u-section-1 .u-shape-1 {
+    margin-top: -432px;
+    margin-left: 52px;
+  }
+
+  .u-section-1 .u-shape-2 {
+    width: 227px;
+    height: 227px;
+    margin-top: 7px;
+    margin-right: 20px;
+  }
+
+  .u-section-1 .u-group-1 {
+    min-height: 366px;
+    margin-top: 147px;
+    margin-bottom: -6px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1476px;
+  }
+
+  .u-section-1 .u-image-1 {
+    margin-right: 13px;
+  }
+
+  .u-section-1 .u-image-2 {
+    margin-top: -812px;
+    margin-left: 20px;
+  }
+
+  .u-section-1 .u-image-3 {
+    margin-top: 331px;
+    margin-left: 20px;
+  }
+
+  .u-section-1 .u-shape-1 {
+    margin-top: -658px;
+    margin-left: 13px;
+  }
+
+  .u-section-1 .u-shape-2 {
+    margin-top: 245px;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-group-1 {
+    margin-top: 87px;
+    margin-bottom: -190px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1485px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 488px;
+    height: 488px;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-image-2 {
+    margin-top: -799px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-image-3 {
+    width: 323px;
+    height: 323px;
+    margin-top: 348px;
+    margin-left: -19px;
+  }
+
+  .u-section-1 .u-shape-1 {
+    margin-top: -671px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-shape-2 {
+    width: 167px;
+    height: 167px;
+    margin-top: 281px;
+  }
+
+  .u-section-1 .u-group-1 {
+    min-height: 398px;
+    margin-top: 125px;
+    margin-bottom: -251px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 1298px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 293px;
+    height: 293px;
+  }
+
+  .u-section-1 .u-image-2 {
+    width: 212px;
+    height: 212px;
+    margin-top: -525px;
+  }
+
+  .u-section-1 .u-image-3 {
+    width: 240px;
+    height: 240px;
+    margin-top: 218px;
+    margin-left: -14px;
+  }
+
+  .u-section-1 .u-shape-1 {
+    width: 73px;
+    height: 73px;
+    margin-top: -458px;
+  }
+
+  .u-section-1 .u-shape-2 {
+    width: 101px;
+    height: 101px;
+    margin-top: 158px;
+  }
+
+  .u-section-1 .u-group-1 {
+    min-height: 488px;
+    margin-top: 145px;
+    margin-bottom: -172px;
+  }
+
+  .u-section-1 .u-text-3 {
+    width: 320px;
+  }
+}
