@@ -31,27 +31,10 @@
 
 <script>
     var audioPlayer = document.getElementById('player');
-    var musicPlaying = getCookie("musicPlaying"); // Get the value of the "musicPlaying" cookie
+    var musicPlaying = localStorage.getItem("musicPlaying"); // Get the value of the "musicPlaying" from local storage
 
     if (musicPlaying === "true") {
         audioPlayer.play();
-    }
-
-    // Function to get the value of a cookie
-    function getCookie(name) {
-        var cookieName = name + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var cookieArray = decodedCookie.split(';');
-        for (var i = 0; i < cookieArray.length; i++) {
-            var cookie = cookieArray[i];
-            while (cookie.charAt(0) === ' ') {
-                cookie = cookie.substring(1);
-            }
-            if (cookie.indexOf(cookieName) === 0) {
-                return cookie.substring(cookieName.length, cookie.length);
-            }
-        }
-        return "";
     }
 </script>
 
