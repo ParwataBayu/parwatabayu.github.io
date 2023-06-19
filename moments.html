@@ -23,6 +23,38 @@
     <meta property="og:title" content="moments">
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+
+  <audio id="player">
+    <source src="https://dc690.4shared.com/img/a7580CZgku/fdd1b37/dlink__2Fdownload_2Fa7580CZgku_2Fangel.mp3_3Fsbsr_3Da0464f37147171d1f76243e8f8b1d0a9ae5_26bip_3DMTE0Ljc5LjE4LjEzNw_26lgfp_3D52_26bip_3DMTE0Ljc5LjE4LjEzNw/preview.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    var audioPlayer = document.getElementById('player');
+    var musicPlaying = getCookie("musicPlaying"); // Get the value of the "musicPlaying" cookie
+
+    if (musicPlaying === "true") {
+        audioPlayer.play();
+    }
+
+    // Function to get the value of a cookie
+    function getCookie(name) {
+        var cookieName = name + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var cookieArray = decodedCookie.split(';');
+        for (var i = 0; i < cookieArray.length; i++) {
+            var cookie = cookieArray[i];
+            while (cookie.charAt(0) === ' ') {
+                cookie = cookie.substring(1);
+            }
+            if (cookie.indexOf(cookieName) === 0) {
+                return cookie.substring(cookieName.length, cookie.length);
+            }
+        }
+        return "";
+    }
+</script>
+
   <body class="u-body u-xl-mode" data-lang="en">
     <section id="carousel_e29f" class="u-carousel u-slide u-block-fcab-1" data-u-ride="carousel" data-interval="5000">
       <ol class="u-absolute-hcenter u-carousel-indicators u-block-fcab-2">
