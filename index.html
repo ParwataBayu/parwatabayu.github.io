@@ -45,22 +45,22 @@
                     <h3 class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-custom-font u-text u-text-2">Anniversary ayang</h3>
                     <p class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-grey-40 u-text-4">Tak Terasa sudah setahun aja kita bersama, lebih sih kalau sedari kita kenal. Berkat ayang hal-hal yg awalnya aku anggap sulit jadi lebih mudah. I LOVE YOU.</p>
                     <p class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-grey-dark-1 u-text-4">- 17 JUNI 2023 -</p>
-		                <a href="#" id="playButton" class="u-border-2 u-border-grey-dark-1 u-border-radius-0 u-btn u-btn-rectangle u-button-style u-btn-1">lihat momen kita</a>
+		                <a href="moments.html" id="playButton" class="u-border-2 u-border-grey-dark-1 u-border-radius-0 u-btn u-btn-rectangle u-button-style u-btn-1">lihat momen kita</a>
                     
                     <audio id="player">
-                        <source src="https://dc690.4shared.com/img/a7580CZgku/fdd1b37/dlink__2Fdownload_2Fa7580CZgku_2Fangel.mp3_3Fsbsr_3Da0464f37147171d1f76243e8f8b1d0a9ae5_26bip_3DMTE0Ljc5LjE4LjEzNw_26lgfp_3D52_26bip_3DMTE0Ljc5LjE4LjEzNw/preview.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                
-                    <script>
-                        var playButton = document.getElementById('playButton');
-                        var audioPlayer = document.getElementById('player');
-                
-                        playButton.addEventListener('click', function() {
-                            audioPlayer.play();
-                            document.cookie = "musicPlaying=true";
-                        });
-                    </script>
+                      <source src="https://dc690.4shared.com/img/a7580CZgku/fdd1b37/dlink__2Fdownload_2Fa7580CZgku_2Fangel.mp3_3Fsbsr_3Da0464f37147171d1f76243e8f8b1d0a9ae5_26bip_3DMTE0Ljc5LjE4LjEzNw_26lgfp_3D52_26bip_3DMTE0Ljc5LjE4LjEzNw/preview.mp3" type="audio/mp3">
+                      Your browser does not support the audio element.
+                  </audio>
+              
+                  <script>
+                      var playButton = document.getElementById('playButton');
+                      var audioPlayer = document.getElementById('player');
+              
+                      playButton.addEventListener('click', function() {
+                          audioPlayer.play();
+                          localStorage.setItem("musicPlaying", "true"); // Set local storage to indicate music is playing
+                      });
+                  </script>
                   
                   </div>
                 </div>
