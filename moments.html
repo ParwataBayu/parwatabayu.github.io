@@ -6,9 +6,18 @@
     <meta name="description" content="">
     <title>Momen Kita</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="moments.css" media="screen">
+    <link rel="stylesheet" href="dialog.css" media="screen">
+    <link rel="stylesheet" href="moments.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+        var dialog = document.getElementById("dialog");
+        dialog.showModal();
+      });
+    </script>
+   
+    
     <meta name="generator" content="Nicepage 5.12.1, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
@@ -24,21 +33,34 @@
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
 
+ 
+
+
+  <dialog id="dialog">
+    <h2 style="margin-top: 1px;">Halo ayang.</h2>
+    <p style="margin-bottom: 23px; margin-top: 1px;">Bersediakan ayang untuk bahagia saat nanti membaca kata-katanya?</p>
+    <button style="margin-bottom: 11px;" id="playButton" class="primary" onclick="window.dialog.close();">Ya Bersedia</button>
+  </dialog>
   <audio id="player">
     <source src="https://dc690.4shared.com/img/a7580CZgku/fdd1b37/dlink__2Fdownload_2Fa7580CZgku_2Fangel.mp3_3Fsbsr_3D2c5d900e979288fb39eb2e524587ab8cae5_26bip_3DMzYuNzUuMTMxLjE5Mg_26lgfp_3D52_26bip_3DMzYuNzUuMTMxLjE5Mg/preview.mp3" type="audio/mp3">
     Your browser does not support the audio element.
 </audio>
 
 <script>
+    var playButton = document.getElementById('playButton');
     var audioPlayer = document.getElementById('player');
-    var musicPlaying = localStorage.getItem("musicPlaying"); // Get the value of the "musicPlaying" from local storage
-
-    if (musicPlaying === "true") {
+    
+    playButton.addEventListener('click', function() {
         audioPlayer.play();
-    }
+        localStorage.setItem("musicPlaying", "true"); // Set local storage to indicate music is playing
+    });
 </script>
 
-  <body class="u-body u-xl-mode" data-lang="en">
+	</dialog>
+
+
+
+<body class="u-body u-xl-mode" data-lang="en">
     <section id="carousel_e29f" class="u-carousel u-slide u-block-fcab-1" data-u-ride="carousel" data-interval="5000">
       <ol class="u-absolute-hcenter u-carousel-indicators u-block-fcab-2">
         <li data-u-target="#carousel_e29f" data-u-slide-to="0" class="u-active u-grey-30"></li>
@@ -181,5 +203,7 @@
         <span>Cinta</span>
       </p> 
     </section>
+
+   
   
 </body></html>
