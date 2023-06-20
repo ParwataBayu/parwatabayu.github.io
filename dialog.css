@@ -25,7 +25,7 @@ dialog {
 		animation: fadeIn 1s ease both;
 		background: rgb(255 255 255 / 40%);
 		z-index: 2;
-		backdrop-filter: blur(20px);
+		backdrop-filter: blur(40px);
 	}
 	.x {
 		filter: grayscale(1);
