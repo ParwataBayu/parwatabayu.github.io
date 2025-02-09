@@ -1,117 +1,78 @@
-/* ===== Reset & Global Styles ===== */
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f9;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
   color: #333;
 }
 
-/* ===== Judul ===== */
 h1 {
   text-align: center;
-  font-size: 24px;
-  color: #222;
   margin-bottom: 20px;
 }
 
-/* ===== Container Tabel ===== */
 .tables-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
   justify-content: center;
 }
 
-/* ===== Wrapper Tabel ===== */
 .table-wrapper {
-  background: #fff;
+  background-color: #fff;
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  width: calc(33% - 20px); /* Menampilkan 3 tabel per baris */
-  min-width: 280px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: calc(50% - 20px); /* 2 tabel per baris */
 }
 
-/* ===== Heading Tabel ===== */
 h2 {
   margin-top: 0;
-  font-size: 18px;
+  font-size: 1.2em;
   text-align: center;
-  color: #444;
 }
 
-/* ===== Tabel ===== */
 table {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
-  border-radius: 6px;
-  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 th, td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-/* ===== Header Tabel ===== */
-th {
-  background: #f8f8f8;
-  font-weight: bold;
+  border: 1px solid #ddd;
+  padding: 8px;
   text-align: center;
 }
 
-/* ===== Input & Select Box ===== */
-input, select {
+th {
+  background-color: #f2f2f2;
+}
+
+input {
   width: 100%;
-  padding: 8px;
+  box-sizing: border-box;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
 }
 
-input:focus, select:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
-}
-
-/* ===== Rentang Waktu (Hanya yang dikuningkan bisa diedit) ===== */
-input.rentangWaktu {
-  background-color: #fffde7;
-  cursor: not-allowed;
-}
-
-/* ===== Tombol Tambah Baris ===== */
 button {
   display: block;
   width: 100%;
   padding: 10px;
-  background: #007bff;
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s ease-in-out;
+  font-size: 1em;
 }
 
 button:hover {
-  background: #0056b3;
+  background-color: #218838;
 }
 
-/* ===== Responsif untuk layar kecil ===== */
-@media (max-width: 768px) {
-  .table-wrapper {
-    width: calc(50% - 20px); /* 2 tabel per baris */
-  }
-}
-
-@media (max-width: 480px) {
-  .table-wrapper {
-    width: 100%; /* 1 tabel per baris */
-  }
+/* Style untuk rentang waktu yang bisa diedit */
+.editable {
+  background-color: yellow;
 }
