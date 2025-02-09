@@ -1,209 +1,40 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Pemeriksaan Waktu</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waktu Pemeriksaan</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Data Pemeriksaan Waktu</h1>
 
-  <!-- Container untuk 8 tabel -->
-  <div class="tables-container">
-    <!-- Tabel 1: Bayu -->
-    <div class="table-wrapper">
-      <h2>Bayu</h2>
-      <table class="dataTable">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>BA-2</th>
-            <th>BA-1</th>
-            <th>Input Data (menit)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="nama"></td>
-            <td><input type="text" class="ba2" value="10:00-10:05"></td>
-            <td><input type="text" class="ba1"></td>
-            <td><input type="number" class="inputMenit"></td>
-          </tr>
-        </tbody>
-      </table>
-      <button onclick="tambahBaris(this)">Tambah Baris</button>
+    <h1>Waktu Pemeriksaan</h1>
+
+    <div class="tables-container">
+        <!-- Loop untuk 8 tabel -->
+        <script>
+            for (let i = 1; i <= 8; i++) {
+                document.write(`
+                    <div class="table-wrapper">
+                        <h2>Pemeriksa ${i}</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>BA-2</th>
+                                    <th>BA-1</th>
+                                    <th>Input (Menit)</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <button onclick="tambahBaris(this)">Tambah Baris</button>
+                    </div>
+                `);
+            }
+        </script>
     </div>
 
-    <!-- Tabel 2: Parwata -->
-    <div class="table-wrapper">
-      <h2>Parwata</h2>
-      <table class="dataTable">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>BA-2</th>
-            <th>BA-1</th>
-            <th>Input Data (menit)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="nama"></td>
-            <td><input type="text" class="ba2" value="10:00-10:05"></td>
-            <td><input type="text" class="ba1"></td>
-            <td><input type="number" class="inputMenit"></td>
-          </tr>
-        </tbody>
-      </table>
-      <button onclick="tambahBaris(this)">Tambah Baris</button>
-    </div>
-
-    <!-- Tabel 3: Nama Pemeriksa 3 -->
-    <div class="table-wrapper">
-      <h2>Nama Pemeriksa 3</h2>
-      <table class="dataTable">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>BA-2</th>
-            <th>BA-1</th>
-            <th>Input Data (menit)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="nama"></td>
-            <td><input type="text" class="ba2" value="10:00-10:05"></td>
-            <td><input type="text" class="ba1"></td>
-            <td><input type="number" class="inputMenit"></td>
-          </tr>
-        </tbody>
-      </table>
-      <button onclick="tambahBaris(this)">Tambah Baris</button>
-    </div>
-
-    <!-- Tabel 4: Nama Pemeriksa 4 -->
-    <div class="table-wrapper">
-      <h2>Nama Pemeriksa 4</h2>
-      <table class="dataTable">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>BA-2</th>
-            <th>BA-1</th>
-            <th>Input Data (menit)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="nama"></td>
-            <td><input type="text" class="ba2" value="10:00-10:05"></td>
-            <td><input type="text" class="ba1"></td>
-            <td><input type="number" class="inputMenit"></td>
-          </tr>
-        </tbody>
-      </table>
-      <button onclick="tambahBaris(this)">Tambah Baris</button>
-    </div>
-
-    <!-- Tabel 5: Nama Pemeriksa 5 -->
-    <div class="table-wrapper">
-      <h2>Nama Pemeriksa 5</h2>
-      <table class="dataTable">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>BA-2</th>
-            <th>BA-1</th>
-            <th>Input Data (menit)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="nama"></td>
-            <td><input type="text" class="ba2" value="10:00-10:05"></td>
-            <td><input type="text" class="ba1"></td>
-            <td><input type="number" class="inputMenit"></td>
-          </tr>
-        </tbody>
-      </table>
-      <button onclick="tambahBaris(this)">Tambah Baris</button>
-    </div>
-
-    <!-- Tabel 6: Nama Pemeriksa 6 -->
-    <div class="table-wrapper">
-      <h2>Nama Pemeriksa 6</h2>
-      <table class="dataTable">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>BA-2</th>
-            <th>BA-1</th>
-            <th>Input Data (menit)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="nama"></td>
-            <td><input type="text" class="ba2" value="10:00-10:05"></td>
-            <td><input type="text" class="ba1"></td>
-            <td><input type="number" class="inputMenit"></td>
-          </tr>
-        </tbody>
-      </table>
-      <button onclick="tambahBaris(this)">Tambah Baris</button>
-    </div>
-
-    <!-- Tabel 7: Nama Pemeriksa 7 -->
-    <div class="table-wrapper">
-      <h2>Nama Pemeriksa 7</h2>
-      <table class="dataTable">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>BA-2</th>
-            <th>BA-1</th>
-            <th>Input Data (menit)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="nama"></td>
-            <td><input type="text" class="ba2" value="10:00-10:05"></td>
-            <td><input type="text" class="ba1"></td>
-            <td><input type="number" class="inputMenit"></td>
-          </tr>
-        </tbody>
-      </table>
-      <button onclick="tambahBaris(this)">Tambah Baris</button>
-    </div>
-
-    <!-- Tabel 8: Nama Pemeriksa 8 -->
-    <div class="table-wrapper">
-      <h2>Nama Pemeriksa 8</h2>
-      <table class="dataTable">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>BA-2</th>
-            <th>BA-1</th>
-            <th>Input Data (menit)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="nama"></td>
-            <td><input type="text" class="ba2" value="10:00-10:05"></td>
-            <td><input type="text" class="ba1"></td>
-            <td><input type="number" class="inputMenit"></td>
-          </tr>
-        </tbody>
-      </table>
-      <button onclick="tambahBaris(this)">Tambah Baris</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
