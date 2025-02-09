@@ -24,8 +24,8 @@ h1 {
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 220px; /* Atur lebar maksimum tabel agar 4 tabel muat dalam satu baris */
-  flex: 1 1 200px; /* Flex-grow, flex-shrink, dan flex-basis */
+  max-width: 700px; /* Atur lebar maksimum tabel agar 4 tabel muat dalam satu baris */
+  flex: 1 1 700px; /* Flex-grow, flex-shrink, dan flex-basis */
   box-sizing: border-box; /* Pastikan padding dan border dihitung dalam lebar */
 }
 
