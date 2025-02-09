@@ -12,7 +12,13 @@ h1 {
 
 .tables-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.table-row {
+  display: flex;
   gap: 20px;
   justify-content: center;
 }
@@ -24,9 +30,7 @@ h1 {
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px; /* Atur lebar maksimum tabel agar 4 tabel muat dalam satu baris */
-  flex: 1 1 400px; /* Flex-grow, flex-shrink, dan flex-basis */
-  box-sizing: border-box; /* Pastikan padding dan border dihitung dalam lebar */
+  max-width: 400px;
 }
 
 h2 {
