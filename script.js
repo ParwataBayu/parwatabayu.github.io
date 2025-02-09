@@ -53,6 +53,13 @@ function tambahBaris(button) {
     kegiatanInput.value = 'BA-2';
   }
 
+  // Jika ini adalah baris pertama, hitung dan setel input menit
+  if (newRow === firstRow) {
+    const rentangWaktu = firstRow.querySelector('.rentang-waktu').value;
+    const menit = hitungSelisihWaktu(rentangWaktu);
+    inputMenit.value = menit;
+  }
+
   // Event listener untuk otomatisasi rentang waktu
   inputMenit.addEventListener('input', function () {
     const prevRow = newRow.previousElementSibling;
@@ -85,4 +92,13 @@ function tambahBaris(button) {
       }
     }
   });
+}
+
+// Fungsi untuk menghitung selisih waktu dalam menit
+function hitungSelisihWaktu(rentangWaktu) {
+  const [start, end] = rentangWaktu.split('-');
+  const startTime = new Date(`1970-01-01T${start}:00`);
+  const endTime = new Date(`1970-01-01T${end}:00`);
+  const selisih = (endTime - startTime) / (1000 * 60); // Menghitung selisih dalam menit
+  return selisih;
 }
