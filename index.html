@@ -3,44 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemeriksaan Waktu</title>
+    <title>Tabel Pemeriksa</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Pemeriksaan Waktu</h1>
+
+    <h1>Waktu Pemeriksaan</h1>
+
     <div class="tables-container">
-        <!-- Loop untuk 8 pemeriksa -->
-        <script>
-            const pemeriksa = ["Pemeriksa 1", "Pemeriksa 2", "Pemeriksa 3", "Pemeriksa 4", "Pemeriksa 5", "Pemeriksa 6", "Pemeriksa 7", "Pemeriksa 8"];
-            document.write(pemeriksa.map(nama => `
-                <div class="table-wrapper">
-                    <h2>${nama}</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nama</th>
-                                <th>Kegiatan</th>
-                                <th>Rentang Waktu</th>
-                                <th>Input Menit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td rowspan="2"><input type="text" value="${nama}" readonly></td>
-                                <td>BA-2</td>
-                                <td><input type="text" class="rentangWaktu" readonly></td>
-                                <td rowspan="2"><input type="number" class="inputMenit"></td>
-                            </tr>
-                            <tr>
-                                <td>BA-1</td>
-                                <td><input type="text" class="rentangWaktu" readonly></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            `).join(''));
-        </script>
+        <!-- Membuat 8 tabel untuk masing-masing pemeriksa -->
+        <div class="table-wrapper">
+            <h2>Pemeriksa 1</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Kegiatan</th>
+                        <th>Rentang Waktu</th>
+                        <th>Input Menit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Isi tabel akan ditambahkan lewat JavaScript -->
+                </tbody>
+            </table>
+            <button class="tambah-baris" onclick="tambahBaris(this)">Tambah Baris</button>
+        </div>
+
+        <!-- Ulangi untuk 8 tabel -->
+        <div class="table-wrapper"><h2>Pemeriksa 2</h2><table><thead><tr><th>Nama</th><th>Kegiatan</th><th>Rentang Waktu</th><th>Input Menit</th></tr></thead><tbody></tbody></table><button class="tambah-baris" onclick="tambahBaris(this)">Tambah Baris</button></div>
+        <div class="table-wrapper"><h2>Pemeriksa 3</h2><table><thead><tr><th>Nama</th><th>Kegiatan</th><th>Rentang Waktu</th><th>Input Menit</th></tr></thead><tbody></tbody></table><button class="tambah-baris" onclick="tambahBaris(this)">Tambah Baris</button></div>
+        <div class="table-wrapper"><h2>Pemeriksa 4</h2><table><thead><tr><th>Nama</th><th>Kegiatan</th><th>Rentang Waktu</th><th>Input Menit</th></tr></thead><tbody></tbody></table><button class="tambah-baris" onclick="tambahBaris(this)">Tambah Baris</button></div>
+
+        <div class="table-wrapper"><h2>Pemeriksa 5</h2><table><thead><tr><th>Nama</th><th>Kegiatan</th><th>Rentang Waktu</th><th>Input Menit</th></tr></thead><tbody></tbody></table><button class="tambah-baris" onclick="tambahBaris(this)">Tambah Baris</button></div>
+        <div class="table-wrapper"><h2>Pemeriksa 6</h2><table><thead><tr><th>Nama</th><th>Kegiatan</th><th>Rentang Waktu</th><th>Input Menit</th></tr></thead><tbody></tbody></table><button class="tambah-baris" onclick="tambahBaris(this)">Tambah Baris</button></div>
+        <div class="table-wrapper"><h2>Pemeriksa 7</h2><table><thead><tr><th>Nama</th><th>Kegiatan</th><th>Rentang Waktu</th><th>Input Menit</th></tr></thead><tbody></tbody></table><button class="tambah-baris" onclick="tambahBaris(this)">Tambah Baris</button></div>
+        <div class="table-wrapper"><h2>Pemeriksa 8</h2><table><thead><tr><th>Nama</th><th>Kegiatan</th><th>Rentang Waktu</th><th>Input Menit</th></tr></thead><tbody></tbody></table><button class="tambah-baris" onclick="tambahBaris(this)">Tambah Baris</button></div>
+
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
