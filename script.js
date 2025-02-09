@@ -53,6 +53,28 @@ function tambahBaris(button) {
     kegiatanInput.value = 'BA-2';
   }
 
+  // Jika ini adalah baris pertama, hitung dan setel input menit
+  if (newRow === firstRow) {
+    const rentangWaktu = firstRow.querySelector('.rentang-waktu').value;
+    const menit = hitungSelisihWaktu(rentangWaktu);
+    inputMenit.value = menit;
+
+    // Event listener untuk memperbarui rentang waktu baris berikutnya
+    rentangWaktuInput.addEventListener('input', function () {
+      const nextRow = newRow.nextElementSibling;
+      if (nextRow) {
+        const nextRentangWaktuInput = nextRow.querySelector('.rentang-waktu');
+        const [startTime, endTime] = rentangWaktuInput.value.split('-');
+        if (endTime) {
+          const endTimeDate = new Date(`1970-01-01T${endTime}:00`);
+          // Set waktu mulai baris berikutnya
+          const nextStartTime = endTimeDate.toTimeString().substring(0, 5);
+          nextRentangWaktuInput.value = `${nextStartTime}-`;
+        }
+      }
+    });
+  }
+
   // Event listener untuk otomatisasi rentang waktu
   inputMenit.addEventListener('input', function () {
     const prevRow = newRow.previousElementSibling;
@@ -72,30 +94,26 @@ function tambahBaris(button) {
           rentangWaktuInput.value = `${endTime}-${newEndTime}`;
         }
       }
+    } else {
+      // Jika ini adalah baris pertama, set rentang waktu berdasarkan input menit
+      const menit = parseInt(inputMenit.value);
+      if (!isNaN(menit)) {
+        const startTime = "10:00"; // Waktu awal default
+        const startTimeDate = new Date(`1970-01-01T${startTime}:00`);
+        startTimeDate.setMinutes(startTimeDate.getMinutes() + menit);
+        const newEndTime = startTimeDate.toTimeString().substring(0, 5);
+
+        rentangWaktuInput.value = `${startTime}-${newEndTime}`;
+      }
     }
   });
+}
 
-  // Jika ini adalah baris pertama, hitung selisih waktu dan isi kolom Input menit
-  if (newRow === firstRow) {
-    const rentangWaktuInput = newRow.querySelector('.rentang-waktu');
-    const inputMenit = newRow.querySelector('.input-menit');
-
-    rentangWaktuInput.addEventListener('input', function () {
-      const rentangWaktu = rentangWaktuInput.value;
-      if (rentangWaktu && rentangWaktu.includes('-')) {
-        const [startTime, endTime] = rentangWaktu.split('-');
-        const startTimeDate = new Date(`1970-01-01T${startTime}:00`);
-        const endTimeDate = new Date(`1970-01-01T${endTime}:00`);
-
-        // Hitung selisih waktu dalam menit
-        const selisihMenit = (endTimeDate - startTimeDate) / (1000 * 60);
-        if (!isNaN(selisihMenit)) {
-          inputMenit.value = selisihMenit;
-        }
-      }
-    });
-
-    // Trigger input event untuk mengisi kolom Input menit saat pertama kali dimuat
-    rentangWaktuInput.dispatchEvent(new Event('input'));
-  }
+// Fungsi untuk menghitung selisih waktu dalam menit
+function hitungSelisihWaktu(rentangWaktu) {
+  const [start, end] = rentangWaktu.split('-');
+  const startTime = new Date(`1970-01-01T${start}:00`);
+  const endTime = new Date(`1970-01-01T${end}:00`);
+  const selisih = (endTime - startTime) / (1000 * 60); // Menghitung selisih dalam menit
+  return selisih;
 }
