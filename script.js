@@ -1,49 +1,73 @@
 function tambahBaris(button) {
-    const table = button.previousElementSibling.getElementsByTagName('tbody')[0];
+  const table = button.previousElementSibling.getElementsByTagName('tbody')[0];
+  const newRow = table.insertRow(table.rows.length);
 
-    const nameRow = table.insertRow();
-    const nameCell = nameRow.insertCell(0);
-    nameCell.colSpan = 4;
-    nameCell.contentEditable = true;
-    nameCell.style.fontWeight = "bold";
-    nameCell.innerText = "Nama Pemeriksa";
+  // Kolom Nama
+  const cell1 = newRow.insertCell(0);
+  cell1.innerHTML = '<input type="text" class="nama">';
 
-    insertActivityRow(table, "BA-2");
-    insertActivityRow(table, "BA-1");
-}
+  // Kolom Kegiatan
+  const cell2 = newRow.insertCell(1);
+  const kegiatanInput = document.createElement('input');
+  kegiatanInput.type = 'text';
+  kegiatanInput.className = 'kegiatan';
+  kegiatanInput.readOnly = true;
+  cell2.appendChild(kegiatanInput);
 
-function insertActivityRow(table, activity) {
-    const row = table.insertRow();
+  // Kolom Rentang Waktu
+  const cell3 = newRow.insertCell(2);
+  const rentangWaktuInput = document.createElement('input');
+  rentangWaktuInput.type = 'text';
+  rentangWaktuInput.className = 'rentang-waktu';
+  rentangWaktuInput.readOnly = true;
+  cell3.appendChild(rentangWaktuInput);
 
-    row.insertCell(0); // Kosong, karena nama ada di atas
-    row.insertCell(1).innerText = activity;
+  // Kolom Input menit
+  const cell4 = newRow.insertCell(3);
+  const inputMenit = document.createElement('input');
+  inputMenit.type = 'number';
+  inputMenit.className = 'input-menit';
+  cell4.appendChild(inputMenit);
 
-    const rentangCell = row.insertCell(2);
-    const rentangInput = document.createElement('input');
-    rentangInput.type = 'text';
-    rentangInput.className = activity === "BA-1" ? 'rentang-waktu' : '';
-    rentangCell.appendChild(rentangInput);
+  // Tentukan kegiatan (BA-2 atau BA-1)
+  const prevRow = newRow.previousElementSibling;
+  if (prevRow) {
+    const prevKegiatan = prevRow.querySelector('.kegiatan').value;
+    kegiatanInput.value = prevKegiatan === 'BA-2' ? 'BA-1' : 'BA-2';
+  } else {
+    kegiatanInput.value = 'BA-2';
+  }
 
-    const inputCell = row.insertCell(3);
-    const inputMenit = document.createElement('input');
-    inputMenit.type = 'number';
-    inputMenit.className = 'inputMenit';
-    inputMenit.addEventListener('input', updateTime);
-    inputCell.appendChild(inputMenit);
-}
+  // Event listener untuk otomatisasi rentang waktu
+  inputMenit.addEventListener('input', function () {
+    const prevRow = newRow.previousElementSibling;
+    if (prevRow) {
+      const prevRentangWaktu = prevRow.querySelector('.rentang-waktu').value;
+      if (prevRentangWaktu) {
+        const [startTime, endTime] = prevRentangWaktu.split('-');
+        const endTimeDate = new Date(`1970-01-01T${endTime}:00`);
 
-function updateTime() {
-    const inputMenit = this;
-    const row = inputMenit.closest('tr');
-    const prevRow = row.previousElementSibling;
-    if (!prevRow) return;
+        // Tambahkan menit dari input
+        const menit = parseInt(inputMenit.value);
+        if (!isNaN(menit)) {
+          endTimeDate.setMinutes(endTimeDate.getMinutes() + menit);
+          const newEndTime = endTimeDate.toTimeString().substring(0, 5);
 
-    const prevTimeInput = prevRow.cells[2].querySelector('input');
-    if (!prevTimeInput || !prevTimeInput.value.includes('-')) return;
+          // Set nilai rentang waktu di baris baru
+          rentangWaktuInput.value = `${endTime}-${newEndTime}`;
+        }
+      }
+    } else {
+      // Jika ini adalah baris pertama, set rentang waktu berdasarkan input menit
+      const menit = parseInt(inputMenit.value);
+      if (!isNaN(menit)) {
+        const startTime = "10:00"; // Waktu awal default
+        const startTimeDate = new Date(`1970-01-01T${startTime}:00`);
+        startTimeDate.setMinutes(startTimeDate.getMinutes() + menit);
+        const newEndTime = startTimeDate.toTimeString().substring(0, 5);
 
-    const [startTime, endTime] = prevTimeInput.value.split('-');
-    const endTimeDate = new Date(`1970-01-01T${endTime}:00`);
-
-    endTimeDate.setMinutes(endTimeDate.getMinutes() + parseInt(inputMenit.value));
-    row.cells[2].querySelector('input').value = `${endTime}-${endTimeDate.toTimeString().substring(0, 5)}`;
+        rentangWaktuInput.value = `${startTime}-${newEndTime}`;
+      }
+    }
+  });
 }
