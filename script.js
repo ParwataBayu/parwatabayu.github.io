@@ -30,7 +30,7 @@ function tambahBaris(button) {
   const rentangWaktuInput = document.createElement('input');
   rentangWaktuInput.type = 'text';
   rentangWaktuInput.className = 'rentang-waktu';
-  rentangWaktuInput.readOnly = true;
+  rentangWaktuInput.readOnly = (table.rows.length > 1) ? true : false; // Baris pertama bisa diedit
   cell3.appendChild(rentangWaktuInput);
 
   // Kolom Input menit
@@ -69,16 +69,35 @@ function tambahBaris(button) {
         }
       }
     } else {
-      // Jika ini adalah baris pertama, set rentang waktu berdasarkan input menit
-      const menit = parseInt(inputMenit.value);
-      if (!isNaN(menit)) {
-        const startTime = "10:00"; // Waktu awal default
-        const startTimeDate = new Date(`1970-01-01T${startTime}:00`);
-        startTimeDate.setMinutes(startTimeDate.getMinutes() + menit);
-        const newEndTime = startTimeDate.toTimeString().substring(0, 5);
-
-        rentangWaktuInput.value = `${startTime}-${newEndTime}`;
-      }
+      // Jika ini adalah baris pertama, izinkan edit manual
+      rentangWaktuInput.readOnly = false;
     }
   });
+
+  // Jika rentang waktu baris pertama diubah, update semua baris berikutnya
+  if (table.rows.length === 1) {
+    rentangWaktuInput.addEventListener('input', function () {
+      updateRentangWaktu(table);
+    });
+  }
+}
+
+// Fungsi untuk update semua rentang waktu berdasarkan baris pertama
+function updateRentangWaktu(table) {
+  let prevEndTime = table.rows[0].querySelector('.rentang-waktu').value.split('-')[1];
+
+  for (let i = 1; i < table.rows.length; i++) {
+    const row = table.rows[i];
+    const inputMenit = row.querySelector('.input-menit');
+    const rentangWaktu = row.querySelector('.rentang-waktu');
+
+    if (inputMenit.value) {
+      let endTimeDate = new Date(`1970-01-01T${prevEndTime}:00`);
+      endTimeDate.setMinutes(endTimeDate.getMinutes() + parseInt(inputMenit.value));
+      let newEndTime = endTimeDate.toTimeString().substring(0, 5);
+
+      rentangWaktu.value = `${prevEndTime}-${newEndTime}`;
+      prevEndTime = newEndTime;
+    }
+  }
 }
