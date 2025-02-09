@@ -3,32 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waktu Pemeriksaan</title>
+    <title>Pemeriksaan Waktu</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Waktu Pemeriksaan</h1>
+    <h1>Pemeriksaan Waktu</h1>
     <div class="tables-container">
+        <!-- Loop untuk 8 pemeriksa -->
         <script>
-            for (let i = 1; i <= 8; i++) {
-                document.write(`
-                    <div class="table-wrapper">
-                        <h2>Pemeriksa ${i}</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Nama</th>
-                                    <th>Kegiatan</th>
-                                    <th>Rentang Waktu</th>
-                                    <th>Input Menit</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                        <button onclick="tambahBaris(this)">Tambah Baris</button>
-                    </div>
-                `);
-            }
+            const pemeriksa = ["Pemeriksa 1", "Pemeriksa 2", "Pemeriksa 3", "Pemeriksa 4", "Pemeriksa 5", "Pemeriksa 6", "Pemeriksa 7", "Pemeriksa 8"];
+            document.write(pemeriksa.map(nama => `
+                <div class="table-wrapper">
+                    <h2>${nama}</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Kegiatan</th>
+                                <th>Rentang Waktu</th>
+                                <th>Input Menit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2"><input type="text" value="${nama}" readonly></td>
+                                <td>BA-2</td>
+                                <td><input type="text" class="rentangWaktu" readonly></td>
+                                <td rowspan="2"><input type="number" class="inputMenit"></td>
+                            </tr>
+                            <tr>
+                                <td>BA-1</td>
+                                <td><input type="text" class="rentangWaktu" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `).join(''));
         </script>
     </div>
     <script src="script.js"></script>
