@@ -11,8 +11,8 @@ h1 {
 }
 
 .tables-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   justify-content: center;
 }
@@ -20,10 +20,11 @@ h1 {
 .table-wrapper {
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: calc(50% - 20px); /* 2 tabel per baris */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
 h2 {
@@ -35,31 +36,39 @@ h2 {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 10px;
 }
 
 th, td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 10px;
   text-align: center;
 }
 
 th {
   background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+td[colspan="4"] {
+  background-color: #eaeaea;
+  font-weight: bold;
+}
+
+.rentang-waktu {
+  background-color: yellow;
 }
 
 input {
   width: 100%;
-  box-sizing: border-box;
-  padding: 5px;
+  padding: 6px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  text-align: center;
 }
 
 button {
-  display: block;
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   background-color: #28a745;
   color: white;
   border: none;
@@ -70,9 +79,4 @@ button {
 
 button:hover {
   background-color: #218838;
-}
-
-/* Style untuk rentang waktu yang bisa diedit */
-.editable {
-  background-color: yellow;
 }
