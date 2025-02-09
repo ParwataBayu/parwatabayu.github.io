@@ -12,15 +12,9 @@ h1 {
 
 .tables-container {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-}
-
-.table-row {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
+  flex-wrap: wrap; /* Memungkinkan tabel untuk membungkus ke baris berikutnya */
+  gap: 20px; /* Jarak antar tabel */
+  justify-content: center; /* Menyusun tabel di tengah */
 }
 
 .table-wrapper {
@@ -30,7 +24,9 @@ h1 {
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 220px; /* Atur lebar maksimum tabel agar 4 tabel muat dalam satu baris */
+  flex: 1 1 200px; /* Flex-grow, flex-shrink, dan flex-basis */
+  box-sizing: border-box; /* Pastikan padding dan border dihitung dalam lebar */
 }
 
 h2 {
