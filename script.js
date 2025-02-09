@@ -1,61 +1,81 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const tables = document.querySelectorAll(".dataTable");
+function tambahBaris(button) {
+  const table = button.previousElementSibling.getElementsByTagName('tbody')[0];
 
-  tables.forEach((table) => {
-    table.addEventListener("input", function (event) {
-      if (event.target.classList.contains("inputMenit")) {
-        hitungRentangWaktu(event.target);
-      }
-    });
-  });
-});
+  // Ambil jumlah baris untuk menentukan apakah perlu menambah nama baru
+  const rowCount = table.rows.length;
+  let nama = '';
 
-function hitungRentangWaktu(inputField) {
-  const row = inputField.closest("tr");
-  const table = row.closest("table");
+  if (rowCount === 0 || table.rows[rowCount - 1].cells[0].innerText !== '') {
+    // Buat baris baru untuk nama pemeriksa
+    const nameRow = table.insertRow();
+    const nameCell = nameRow.insertCell(0);
+    nameCell.colSpan = 4;
+    nameCell.contentEditable = true; // Bisa diubah langsung
+    nameCell.style.fontWeight = "bold";
+    nama = "Pemeriksa Baru"; // Nama default, bisa diedit
 
-  const inputMenit = parseInt(inputField.value, 10) || 0;
-  const prevRow = row.previousElementSibling;
-
-  if (prevRow) {
-    const prevRentang = prevRow.querySelector(".rentangWaktu").value;
-    if (prevRentang) {
-      const [startTime, endTime] = prevRentang.split("-");
-      const endDate = new Date(`1970-01-01T${endTime}:00`);
-
-      // Tambahkan waktu dari input (menit)
-      endDate.setMinutes(endDate.getMinutes() + inputMenit);
-      const newEndTime = endDate.toTimeString().substring(0, 5);
-
-      // Set nilai pada kolom "Rentang Waktu" (hanya di sel kuning)
-      const rentangWaktuCell = row.querySelector(".rentangWaktu");
-      if (rentangWaktuCell) {
-        rentangWaktuCell.value = `${endTime}-${newEndTime}`;
-      }
-    }
+    // Baris pertama BA-2
+    insertActivityRow(table, "BA-2", nama);
+    insertActivityRow(table, "BA-1", "");
+  } else {
+    // Jika sudah ada nama, cukup tambahkan baris aktivitas
+    insertActivityRow(table, "BA-2", "");
+    insertActivityRow(table, "BA-1", "");
   }
 }
 
-function tambahBaris(button) {
-  const table = button.previousElementSibling.getElementsByTagName("tbody")[0];
-  const newRow = table.insertRow();
+function insertActivityRow(table, activity, nama) {
+  const row = table.insertRow();
+  
+  // Nama hanya diisi di baris pertama kegiatan
+  const cell1 = row.insertCell(0);
+  if (nama) {
+    cell1.rowSpan = 2; 
+    cell1.innerText = nama;
+    cell1.style.fontWeight = "bold";
+  }
 
-  // Kolom Nama (kosong, hanya ditampilkan pada baris pertama tiap orang)
-  const cell1 = newRow.insertCell(0);
-  cell1.innerHTML = "";
+  // Kolom kegiatan
+  const cell2 = row.insertCell(1);
+  cell2.innerText = activity;
 
-  // Kolom Kegiatan
-  const cell2 = newRow.insertCell(1);
-  cell2.innerHTML = `<select class="kegiatan">
-                        <option value="BA-2">BA-2</option>
-                        <option value="BA-1">BA-1</option>
-                     </select>`;
+  // Kolom rentang waktu
+  const cell3 = row.insertCell(2);
+  const timeInput = document.createElement('input');
+  timeInput.type = 'text';
+  timeInput.className = 'rentangWaktu';
+  if (activity === "BA-1") {
+    timeInput.classList.add("rentang-waktu"); // Beri warna kuning
+  }
+  cell3.appendChild(timeInput);
 
-  // Kolom Rentang Waktu (editable jika dikuningkan)
-  const cell3 = newRow.insertCell(2);
-  cell3.innerHTML = `<input type="text" class="rentangWaktu editable" readonly>`;
+  // Kolom input menit
+  const cell4 = row.insertCell(3);
+  if (activity === "BA-2") {
+    cell4.innerText = "-";
+  } else {
+    const inputMenit = document.createElement('input');
+    inputMenit.type = 'number';
+    inputMenit.className = 'inputMenit';
+    inputMenit.addEventListener('input', updateTime);
+    cell4.appendChild(inputMenit);
+  }
+}
 
-  // Kolom Input Menit
-  const cell4 = newRow.insertCell(3);
-  cell4.innerHTML = `<input type="number" class="inputMenit" min="1">`;
+function updateTime() {
+  const inputMenit = this;
+  const row = inputMenit.closest('tr');
+  const prevRow = row.previousElementSibling;
+  if (!prevRow) return;
+
+  const prevTimeInput = prevRow.cells[2].querySelector('input');
+  if (!prevTimeInput || !prevTimeInput.value.includes('-')) return;
+
+  const [startTime, endTime] = prevTimeInput.value.split('-');
+  const endTimeDate = new Date(`1970-01-01T${endTime}:00`);
+
+  endTimeDate.setMinutes(endTimeDate.getMinutes() + parseInt(inputMenit.value));
+  const newEndTime = endTimeDate.toTimeString().substring(0, 5);
+
+  row.cells[2].querySelector('input').value = `${endTime}-${newEndTime}`;
 }
