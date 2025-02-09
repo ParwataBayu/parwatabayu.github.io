@@ -4,7 +4,18 @@ function tambahBaris(button) {
 
   // Kolom Nama
   const cell1 = newRow.insertCell(0);
-  cell1.innerHTML = '<input type="text" class="nama">';
+  const namaInput = document.createElement('input');
+  namaInput.type = 'text';
+  namaInput.className = 'nama';
+  cell1.appendChild(namaInput);
+
+  // Jika ini bukan baris pertama, kunci input nama dan ambil nilai dari baris pertama
+  const firstRow = table.rows[0];
+  if (firstRow && newRow !== firstRow) {
+    const firstNameInput = firstRow.querySelector('.nama');
+    namaInput.value = firstNameInput.value;
+    namaInput.readOnly = true;
+  }
 
   // Kolom Kegiatan
   const cell2 = newRow.insertCell(1);
