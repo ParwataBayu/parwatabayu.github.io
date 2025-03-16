@@ -94,7 +94,7 @@ button:hover {
 /* Aturan untuk kolom Nama */
 .dataTable th:nth-child(1),
 .dataTable td:nth-child(1) {
-    width: 45% !important; /* Lebar kolom Nama */
+    width: 50% !important; /* Lebar kolom Nama */
 }
 
 /* Aturan untuk kolom Kegiatan */
@@ -106,7 +106,7 @@ button:hover {
 /* Aturan untuk kolom Rentang Waktu */
 .dataTable th:nth-child(3),
 .dataTable td:nth-child(3) {
-    width: 35% !important; /* Lebar kolom Rentang Waktu */
+    width: 30% !important; /* Lebar kolom Rentang Waktu */
 }
 
 /* Aturan untuk kolom Input Menit */
