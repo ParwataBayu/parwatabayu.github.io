@@ -127,6 +127,17 @@
       inputMenit.className = 'input-menit';
       cell4.appendChild(inputMenit);
 
+      // Kolom Hapus
+      const cell5 = newRow.insertCell(4);
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Hapus';
+      deleteButton.className = 'delete'; // Tambahkan kelas untuk styling
+      deleteButton.onclick = function() {
+          table.deleteRow(newRow.rowIndex - 1); // Menghapus baris yang sesuai
+          simpanData(); // Simpan data setelah menghapus baris
+      };
+      cell5.appendChild(deleteButton);
+
       // Tentukan Jenis (BA-2 atau BA-1)
       const prevRow = newRow.previousElementSibling;
       if (prevRow) {
@@ -200,6 +211,7 @@
             <th>Jenis</th>
             <th>Rentang Waktu</th>
             <th>Input menit</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -224,6 +236,7 @@
             <th>Jenis</th>
             <th>Rentang Waktu</th>
             <th>Input menit</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -248,6 +261,7 @@
             <th>Jenis</th>
             <th>Rentang Waktu</th>
             <th>Input menit</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -272,6 +286,7 @@
             <th>Jenis</th>
             <th>Rentang Waktu</th>
             <th>Input menit</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -296,6 +311,7 @@
             <th>Jenis</th>
             <th>Rentang Waktu</th>
             <th>Input menit</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -320,6 +336,7 @@
             <th>Jenis</th>
             <th>Rentang Waktu</th>
             <th>Input menit</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -344,6 +361,7 @@
             <th>Jenis</th>
             <th>Rentang Waktu</th>
             <th>Input menit</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -368,6 +386,7 @@
             <th>Jenis</th>
             <th>Rentang Waktu</th>
             <th>Input menit</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -392,6 +411,7 @@
             <th>Jenis</th>
             <th>Rentang Waktu</th>
             <th>Input menit</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
