@@ -128,6 +128,9 @@ button.delete {
   padding: 10px;
   font-size: 1em;
 }
+.aksi-header, .aksi {
+    display: none;
+}
 
 button.delete:hover {
   background-color: #c82333; /* Warna lebih gelap saat hover */
