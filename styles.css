@@ -91,3 +91,22 @@ button:hover {
     width: 100%; /* 1 tabel dalam satu baris pada layar sangat kecil */
   }
 }
+/* Aturan untuk kolom Nama */
+.dataTable th:nth-child(1),
+.dataTable td:nth-child(1) {
+    width: 40%; /* Lebar kolom Nama */
+}
+
+/* Aturan untuk kolom Kegiatan */
+.dataTable th:nth-child(2),
+.dataTable td:nth-child(2) {
+    width: 20%; /* Lebar kolom Kegiatan */
+}
+
+/* Aturan untuk kolom Rentang Waktu dan Input Menit */
+.dataTable th:nth-child(3),
+.dataTable td:nth-child(3),
+.dataTable th:nth-child(4),
+.dataTable td:nth-child(4) {
+    width: 20%; /* Lebar kolom Rentang Waktu dan Input Menit */
+}
