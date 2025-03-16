@@ -100,13 +100,15 @@ button:hover {
 /* Aturan untuk kolom Kegiatan */
 .dataTable th:nth-child(2),
 .dataTable td:nth-child(2) {
-    width: 20% !important; /* Lebar kolom Kegiatan */
+    width: 10% !important; /* Lebar kolom Kegiatan */
 }
 
-/* Aturan untuk kolom Rentang Waktu dan Input Menit */
+/* Aturan untuk kolom Rentang Waktu*/
 .dataTable th:nth-child(3),
-.dataTable td:nth-child(3),
+.dataTable td:nth-child(3), {
+    width: 30% !important; /* Lebar kolom Rentang Waktu dan Input Menit */
+}
+/* Aturan untuk kolom Input Menit */
 .dataTable th:nth-child(4),
 .dataTable td:nth-child(4) {
     width: 20% !important; /* Lebar kolom Rentang Waktu dan Input Menit */
-}
