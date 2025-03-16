@@ -17,13 +17,13 @@ function tambahBaris(button) {
     namaInput.readOnly = true;
   }
 
-  // Kolom kegiatan
+  // Kolom Jenis
   const cell2 = newRow.insertCell(1);
-  const kegiatanInput = document.createElement('input');
-  kegiatanInput.type = 'text';
-  kegiatanInput.className = 'kegiatan';
-  kegiatanInput.readOnly = true;
-  cell2.appendChild(kegiatanInput);
+  const JenisInput = document.createElement('input');
+  JenisInput.type = 'text';
+  JenisInput.className = 'Jenis';
+  JenisInput.readOnly = true;
+  cell2.appendChild(JenisInput);
 
   // Kolom Rentang Waktu
   const cell3 = newRow.insertCell(2);
@@ -44,13 +44,13 @@ function tambahBaris(button) {
   inputMenit.className = 'input-menit';
   cell4.appendChild(inputMenit);
 
-  // Tentukan kegiatan (BA-2 atau BA-1)
+  // Tentukan Jenis (BA-2 atau BA-1)
   const prevRow = newRow.previousElementSibling;
   if (prevRow) {
-    const prevkegiatan = prevRow.querySelector('.kegiatan').value;
-    kegiatanInput.value = prevkegiatan === 'BA-2' ? 'BA-1' : 'BA-2';
+    const prevJenis = prevRow.querySelector('.Jenis').value;
+    JenisInput.value = prevJenis === 'BA-2' ? 'BA-1' : 'BA-2';
   } else {
-    kegiatanInput.value = 'BA-2';
+    JenisInput.value = 'BA-2';
   }
 
   // Event listener untuk otomatisasi rentang waktu
