@@ -43,7 +43,7 @@
         set(ref(database, `tabelData/${index}`), data);
       });
     }
-    
+
     // Fungsi untuk memuat data dari Firebase
     function muatData() {
       const tabels = document.querySelectorAll('.dataTable');
@@ -80,14 +80,10 @@
         simpanData();
       }
     });
-
-           
       // Fungsi untuk menambah baris baru
-    
-      window.tambahBaris = function(button) {
+    window.tambahBaris = function(button) {
       const table = button.previousElementSibling.getElementsByTagName('tbody')[0];
       const newRow = table.insertRow(table.rows.length);
-      }}
 
       // Kolom Nama
       const cell1 = newRow.insertCell(0);
@@ -224,7 +220,7 @@
             <td><input type="text" class="Jenis" value="BA-2" readonly></td>
             <td><input type="text" class="rentang-waktu" value="10:00-10:05"></td>
             <td><input type="number" class="input-menit" readonly></td>
-            <td><input type="text" class="aksi" readonly></td>
+            <td></td>
           </tr>
         </tbody>
       </table>
@@ -381,31 +377,7 @@
       <button onclick="tambahBaris(this)">Tambah Baris</button>
     </div>
 
-    <!-- Tabel 8: Tabel 7 -->
-    <div class="table-wrapper">
-      <h2>Tabel 7</h2>
-      <table class="dataTable">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>Jenis</th>
-            <th>Rentang Waktu</th>
-            <th>Input menit</th>
-            <th>Aksi</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" class="nama"></td>
-            <td><input type="text" class="Jenis" value="BA-2" readonly></td>
-            <td><input type="text" class="rentang-waktu" value="10:00-10:05"></td>
-            <td><input type="number" class="input-menit" readonly></td>
-          </tr>
-        </tbody>
-      </table>
-      <button onclick="tambahBaris(this)">Tambah Baris</button>
-    </div>
-    
+      
 
     <!-- Tabel 9: Tabel 8 -->
     <div class="table-wrapper">
