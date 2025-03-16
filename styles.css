@@ -23,7 +23,7 @@ h1 {
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: calc(33.33% - 20px); /* Mengatur lebar tabel agar 3 tabel dalam satu baris */
+  width: calc(50% - 20px); /* Mengatur lebar tabel agar 2 tabel dalam satu baris */
   max-width: 800px; /* Maksimal lebar tabel */
   box-sizing: border-box; /* Memastikan padding dan border dihitung dalam lebar */
 }
