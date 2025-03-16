@@ -106,7 +106,17 @@ button:hover {
 /* Aturan untuk kolom Rentang Waktu */
 .dataTable th:nth-child(3),
 .dataTable td:nth-child(3) {
-    width: 30% !important; /* Lebar kolom Rentang Waktu */
+    width: 20% !important; /* Lebar kolom Rentang Waktu */
+}
+/* Aturan untuk kolom Input Menit */
+.dataTable th:nth-child(4),
+.dataTable td:nth-child(4) {
+    width: 20% !important; /* Lebar kolom Input Menit */
+}
+/* Aturan untuk kolom aksi */
+.dataTable th:nth-child(5),
+.dataTable td:nth-child(5) {
+    width: 10% !important; /* Lebar kolom Input Menit */
 }
 
 button.delete {
@@ -115,15 +125,11 @@ button.delete {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  padding: 10px;
-  font-size: 1em;
+  padding: 5px;
+  font-size: 0.5em;
 }
 
 button.delete:hover {
   background-color: #c82333; /* Warna lebih gelap saat hover */
 }
-/* Aturan untuk kolom Input Menit */
-.dataTable th:nth-child(4),
-.dataTable td:nth-child(4) {
-    width: 20% !important; /* Lebar kolom Input Menit */
-}
+
