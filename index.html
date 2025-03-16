@@ -43,7 +43,7 @@
         set(ref(database, `tabelData/${index}`), data);
       });
     }
-
+    
     // Fungsi untuk memuat data dari Firebase
     function muatData() {
       const tabels = document.querySelectorAll('.dataTable');
@@ -80,10 +80,27 @@
         simpanData();
       }
     });
+
+     // Kolom Hapus
+      function Aksi() {
+      const cell5 = newRow.insertCell(4);
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Hapus';
+      deleteButton.className = 'delete'; // Tambahkan kelas untuk styling
+      deleteButton.onclick = function() {
+          table.deleteRow(newRow.rowIndex - 1); // Menghapus baris yang sesuai
+          simpanData(); // Simpan data setelah menghapus baris
+      };
+      cell5.appendChild(deleteButton);
+      // Panggil fungsi muatData saat halaman dimuat
+      window.onload = Aksi;
+        
       // Fungsi untuk menambah baris baru
-    window.tambahBaris = function(button) {
+    
+      window.tambahBaris = function(button) {
       const table = button.previousElementSibling.getElementsByTagName('tbody')[0];
       const newRow = table.insertRow(table.rows.length);
+      }}
 
       // Kolom Nama
       const cell1 = newRow.insertCell(0);
