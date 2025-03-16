@@ -6,10 +6,81 @@
   <title>Project Pemeriksaan Waktu</title>
   <link rel="stylesheet" href="styles.css">
   <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
- </script>
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
+    // Konfigurasi Firebase Anda
+    const firebaseConfig = {
+      apiKey: "AIzaSyAMKdi2qXvhxb_qIGpZpDM8VZ7aWqCa8Mk",
+      authDomain: "waktu-pemeriksaan.firebaseapp.com",
+      databaseURL: "https://waktu-pemeriksaan-default-rtdb.firebaseio.com",
+      projectId: "waktu-pemeriksaan",
+      storageBucket: "waktu-pemeriksaan.firebasestorage.app",
+      messagingSenderId: "755312828558",
+      appId: "1:755312828558:web:df27bd4d74fb30290869df",
+      measurementId: "G-NHZNCXCM0D"
+    };
+
+    // Inisialisasi Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Fungsi untuk menyimpan data ke Firebase
+    function simpanData() {
+      const tabels = document.querySelectorAll('.dataTable');
+      tabels.forEach((tabel, index) => {
+        const rows = tabel.querySelectorAll('tbody tr');
+        const data = [];
+        rows.forEach(row => {
+          const nama = row.querySelector('.nama').value;
+          const jenis = row.querySelector('.Jenis').value;
+          const rentangWaktu = row.querySelector('.rentang-waktu').value;
+          const inputMenit = row.querySelector('.input-menit').value;
+          data.push({ nama, jenis, rentangWaktu, inputMenit });
+        });
+        // Simpan data ke Firebase
+        set(ref(database, `tabelData/${index}`), data);
+      });
+    }
+
+    // Fungsi untuk memuat data dari Firebase
+    function muatData() {
+      const tabels = document.querySelectorAll('.dataTable');
+      tabels.forEach((tabel, index) => {
+        const dbRef = ref(database);
+        get(child(dbRef, `tabelData/${index}`)).then((snapshot) => {
+          if (snapshot.exists()) {
+            const data = snapshot.val();
+            const tbody = tabel.querySelector('tbody');
+            tbody.innerHTML = ''; // Kosongkan tbody sebelum mengisi
+            data.forEach(item => {
+              const newRow = document.createElement('tr');
+              newRow.innerHTML = `
+                <td><input type="text" class="nama" value="${item.nama}"></td>
+                <td><input type="text" class="Jenis" value="${item.jenis}" readonly></td>
+                <td><input type="text" class="rentang-waktu" value="${item.rentangWaktu}"></td>
+                <td><input type="number" class="input-menit" value="${item.inputMenit}" readonly></td>
+              `;
+              tbody.appendChild(newRow);
+            });
+          }
+        }).catch((error) => {
+          console.error("Error getting data: ", error);
+        });
+      });
+    }
+
+    // Panggil fungsi muatData saat halaman dimuat
+    window.onload = muatData;
+
+    // Tambahkan event listener untuk menyimpan data saat input berubah
+    document.addEventListener('input', (event) => {
+      if (event.target.matches('.dataTable input')) {
+        simpanData();
+      }
+    });
+  </script>
 </head>
 <body>
   <h1>Data Pemeriksaan Waktu</h1>
